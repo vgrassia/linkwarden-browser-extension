@@ -9,7 +9,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "dist:chrome": "npm run build && cp chromium/manifest.json dist/manifest.json && npm run package:chrome",
+    "dist:firefox": "npm run build && cp firefox/manifest.json dist/manifest.json && npm run package:firefox",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "package:chrome": "zip -r chrome.zip dist/*",
+    "package:firefox": "zip -r firefox.zip dist/*",
     "preview": "vite preview"
   },
   "dependencies": {
